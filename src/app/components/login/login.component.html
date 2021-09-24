@@ -1,0 +1,12 @@
+<header-component></header-component>
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+        <label>Username</label><br>
+        <input type="text" name="username" formControlName="username"><br>
+        <span *ngIf="loginForm.controls.username?.touched && loginForm.controls.username.errors?.required">Username is required</span><br>
+        <label>Password</label><br>
+        <input type="password" name="password" formControlName="password"><br>
+        <span *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].hasError('required')">Password is required</span><br>
+        <button>Login</button>
+    </form>
+    
+<footer-component></footer-component>

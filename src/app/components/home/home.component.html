@@ -1,0 +1,39 @@
+<header-component></header-component>
+<div>
+    <!-- If user is selected Welcome them and add cart and user info -->
+    <div *ngIf="user != null">
+        <h4>
+            Welcome {{user.firstName}}!
+        </h4>
+        <!-- Add the buttons-->
+        
+        <a href="/info" class="btn btn-primary">View User Info</a> 
+        <a href="/cart" class="btn btn-danger">View Cart</a> 
+        
+              
+    </div>
+    <br />
+    <h4>Dishes Offered for this Week</h4>
+</div>
+<div class="list"> 
+    <div class="row card-group">
+        <!-- List meal's name and picture (price if necessary)-->
+        <div class="col-3"  *ngFor="let meal of weeklyMeals">
+            <div class="card" style="width: 100%;">
+                <div class="card-header">
+                    {{meal.dish}}
+                </div>
+                <img src="{{meal.pic}}" class="card-img-top">
+                <div *ngIf="user != null" class="card-body">
+                  <!-- Servings and price if user is registered-->
+                  <span> Price ${{meal.price}} per serving</span>
+                  <br />
+                  <label for="quantity">Quantity:</label>
+                  <input type="number" name="quantity" id="quantity">
+                  <button> Add to Cart</button>
+                </div>
+              </div>
+        </div>
+    </div>
+ </div>
+<footer-component></footer-component>

@@ -1,0 +1,87 @@
+<header-component></header-component>
+    <h1 class="text-center">User Info</h1>
+    <div class="text-justify text-center">
+            <section class="vh-100">
+                <div class="mask d-flex align-items-center gradient-custom-3">
+                    <div class="container">
+                    <div class="row d-flex justify-content-center align-items-center u">
+                        <div class="row d-flex justify-content-center align-items-center u col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-5">
+                
+                            <form [formGroup]="userForm" (ngSubmit)="register()">
+                
+                                <div class="form-outline mb-4">
+                                        <label for="first-name">First Name: </label>
+                                        <input id="first-name" type="text" formControlName="firstName" ><br />
+                                        <span *ngIf="userForm.controls['firstName'].touched && userForm.controls['firstName'].hasError('required')">First name is required</span><br>
+                                        <span *ngIf="userForm.controls['firstName'].touched && userForm.controls['firstName'].hasError('pattern')">Please use letters only</span><br>
+                                </div>
+                                <div class="form-outline mb-4">
+                                        <label for="last-name">Last Name: </label>
+                                        <input id="last-name" type="text" formControlName="lastName" ><br />
+                                        <span *ngIf="userForm.controls['lastName'].touched && userForm.controls['lastName'].hasError('required')">Last name is required</span><br>
+                                        <span *ngIf="userForm.controls['lastName'].touched && userForm.controls['lastName'].hasError('pattern')">Please use letters only</span><br>
+                                </div>
+                                <div formGroupName="login">
+                                    <div class="form-outline mb-4">
+                                            <label for="username">Username: </label>
+                                            <input id="username" type="text" formControlName="username" ><br />
+                                            <span *ngIf="userForm.controls['login'].controls['username'].touched && userForm.controls['login'].controls['username'].hasError('required')">Username is required</span><br>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                            <label for="password">Password: </label>
+                                            <input id="password" type="password" formControlName="password"><br />
+                                            <span *ngIf="userForm.controls['login'].controls['password'].touched && userForm.controls['login'].controls['password'].hasError('required')">Password is required</span><br>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                            <label for="confirm-password">Confirm Password: </label>
+                                            <input id="confirm-password" type="password" formControlName="confirmPassword" pattern="{{ userForm.controls['login'].controls['password'].value }}"><br />
+                                            <span *ngIf="userForm.controls['login'].controls['confirmPassword'].touched && userForm.controls['login'].controls['confirmPassword'].hasError('required')">Confirm password is required</span><br>
+                                            <span *ngIf="userForm.controls['login'].controls['confirmPassword'].touched && userForm.controls['login'].controls['confirmPassword'].hasError('pattern')">Passwords don't match</span><br>
+                                    </div>
+                                </div>
+                                <div formGroupName="address">
+                                    <h2>Address</h2>
+                                    <div class="form-outline mb-4">
+                                            <label for="housenumber">House Number: </label>
+                                            <input id="housenumber" type="text" formControlName="housenumber"><br />
+                                            <span *ngIf="userForm.controls['address'].controls['housenumber'].touched && userForm.controls['address'].controls['housenumber'].hasError('required')">House Number is required</span><br>
+                                        </div>
+                                    <div class="form-outline mb-4">
+                                        <label for="streetname">Street: </label>
+                                        <input id="streetname" type="text" formControlName="streetname"><br />
+                                        <span *ngIf="userForm.controls['address'].controls['streetname'].touched && userForm.controls['address'].controls['streetname'].hasError('required')">Street Name is required</span><br>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <label for="city">City: </label>
+                                        <input id="city" type="text" formControlName="city"><br />
+                                        <span *ngIf="userForm.controls['address'].controls['city'].touched && userForm.controls['address'].controls['city'].hasError('required')">City is required</span><br>
+                                        <span *ngIf="userForm.controls['address'].controls['city'].touched && userForm.controls['address'].controls['city'].hasError('pattern')">Please use letters only</span><br>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <label for="state">State: </label>
+                                        <input id="state" type="text" formControlName="state" ><br />
+                                        <span *ngIf="userForm.controls['address'].controls['state'].touched && userForm.controls['address'].controls['state'].hasError('required')">State is required</span><br>
+                                        <span *ngIf="userForm.controls['address'].controls['state'].touched && userForm.controls['address'].controls['state'].hasError('pattern')">Please use letters only</span><br>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <label for="zip">Zip Code: </label>
+                                        <input id="zip" type="text" formControlName="zip"><br />
+                                        <span *ngIf="userForm.controls['address'].controls['zip'].touched && userForm.controls['address'].controls['zip'].hasError('required')">Zip is required</span><br>
+                                        <span *ngIf="userForm.controls['address'].controls['zip'].touched && userForm.controls['address'].controls['zip'].hasError('pattern')">Use a 5 numbered zip code</span><br>
+                                    </div>
+                                </div>
+                                         
+                                <button class="btn btn-success" type="submit" [disabled]="!userForm.valid">Register</button>
+                            </form>
+                
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </section>
+            </div>
+<footer-component></footer-component>
