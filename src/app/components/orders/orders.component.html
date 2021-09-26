@@ -1,1 +1,24 @@
-<p>orders works!</p>
+<header-component></header-component>
+    <h4>Orders In Cart</h4>
+    <div class="list"> 
+            <div class="row card-group">
+                <!-- List meal's name and picture (price if necessary)-->
+                <div class="col"  *ngFor="let order of userOrders">
+                    
+                    <div class="card" style="width: 100%;">
+                        <div class="card-body">
+                            Order Date: {{order.datePlaced}} <br />
+                            Order Items: <br />
+                            <span class="col" *ngFor="let dish of order.dishes">
+                                Order Name: {{dish.order}}
+                                <br />
+                            </span>
+                            Order Status: {{order.status}} <br />
+                            Order Total: {{order.total}} <br />
+                        </div>
+                        
+                    
+                      </div>
+                </div>
+            </div>
+<footer-component></footer-component>

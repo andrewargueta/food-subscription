@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-orders',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-
-  constructor() { }
+  userOrders
+  orders
+  constructor(private helper : HelperService) { }
 
   ngOnInit(): void {
-  }
+    this.helper.getOrders().subscribe(data => {
+      this.userOrders = [];
+      this.orders = data;
+      let id = localStorage['userId'];
+      for (const order of this.orders) {
+        if(order.userId  ==  id){
+          this.userOrders.push(order);
+          }
+        }
+      
+      console.log(this.userOrders);
+      }
+    )};
 
 }

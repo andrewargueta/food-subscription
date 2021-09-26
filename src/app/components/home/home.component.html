@@ -9,11 +9,19 @@
         
         <a href="/info" class="btn btn-primary">View User Info</a> 
         <a href="/cart" class="btn btn-danger">View Cart</a> 
+        <a href="/orders" class="btn btn-secondary">View Orders</a> 
         
               
     </div>
     <br />
     <h4>Dishes Offered for this Week</h4>
+    <div class="input-group" style="width:33%;">
+        <input type="search" class="form-control rounded" placeholder="Search Ingredients" aria-label="Search"
+            aria-describedby="search-addon" [(ngModel)]="filter"  />
+        <button type="button" (click)="filterIngredients(filter)" class="btn btn-outline-primary">Search</button>
+        <button type="button" (click)="resetFilter()" class="btn btn-outline-danger">Reset</button>
+    </div>
+    <span *ngIf="filter != ''">Meals with  {{filter}}</span>
 </div>
 <div class="list"> 
     <div class="row card-group">
@@ -29,8 +37,8 @@
                   <span> Price ${{meal.price}} per serving</span>
                   <br />
                   <label for="quantity">Quantity:</label>
-                  <input type="number" name="quantity" id="quantity">
-                  <button> Add to Cart</button>
+                  <input  type="number" [(ngModel)]="quantity" name="quantity" id="quantity" min=0 value=0>
+                  <button (click)="updateCart(meal,quantity)"> Add to Cart</button>
                 </div>
               </div>
         </div>

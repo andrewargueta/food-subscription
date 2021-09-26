@@ -1,3 +1,13 @@
 <header-component></header-component>
-<p>cart works!</p>
+<h2>My Orders</h2>
+<ul *ngIf="userCart.length !== 0" class="orders">
+    <li *ngFor="let order of userCart; let i = index">
+        <span class="order">{{order.dish}} ({{order.servings}} servings for ${{order.servings * order.price}}) </span>
+        <button class="btn btn-danger" (click)="removeOrder(i)">X</button>
+    </li>
+    <span class="cart-total">Cart Total: ${{cartTotal}}</span>
+</ul>
+<span  *ngIf="userCart.length == 0" > No Orders In Your Cart! <br /> <br /></span>
+<button class="btn btn-danger" (click)="clearCart()"> Clear Cart</button>
+<button class="btn btn-success" (click)="postOrder()">Submit</button>
 <footer-component></footer-component>

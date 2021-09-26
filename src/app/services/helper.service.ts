@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class HelperService {
   url = "../assets/db.json";
   users
-  
+  userCart:string = (localStorage['cart'] == undefined) ? "" : localStorage['cart'];
   getJsonData(){
     return this.http.get(this.url);
   }
@@ -26,6 +26,9 @@ export class HelperService {
     else{
       return this.http.get('http://localhost:3000/users/');
     }
+  }
+  getOrders(){
+    return this.http.get('http://localhost:3000/orders/');
   }
   
   constructor(private http : HttpClient) { }
