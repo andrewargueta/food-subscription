@@ -8,6 +8,6 @@
     <span class="cart-total">Cart Total: ${{cartTotal}}</span>
 </ul>
 <span  *ngIf="userCart.length == 0" > No Orders In Your Cart! <br /> <br /></span>
-<button class="btn btn-danger" (click)="clearCart()"> Clear Cart</button>
-<button class="btn btn-success" (click)="postOrder()">Submit</button>
+<button *ngIf="userCart.length != 0"class="btn btn-danger" (click)="clearCart()"> Clear Cart</button>
+<button  *ngIf="userCart.length != 0" class="btn btn-success" (click)="postOrder()">Submit</button>
 <footer-component></footer-component>

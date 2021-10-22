@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "firstName": "Johnny",
+      "firstName": "John",
       "lastName": "Doe",
       "address": {
         "housenumber": 123,
@@ -344,6 +344,58 @@
       "userId": "1",
       "total": 25,
       "id": 2
+    },
+    {
+      "dishes": [
+        {
+          "order": "Tikka Masala",
+          "total": 10,
+          "servings": 2
+        },
+        {
+          "order": "Honey Shrimp",
+          "total": 10,
+          "servings": 2
+        },
+        {
+          "order": "Lemon Chicken",
+          "total": 10,
+          "servings": 2
+        }
+      ],
+      "datePlaced": "2021-09-26T04:46:53.287Z",
+      "status": "Placed",
+      "userId": "1",
+      "total": 30,
+      "id": 3
+    },
+    {
+      "dishes": [
+        {
+          "order": "Tikka Masala",
+          "total": 20,
+          "servings": 4
+        }
+      ],
+      "datePlaced": "2021-09-26T04:49:11.230Z",
+      "status": "Placed",
+      "userId": "1",
+      "total": 20,
+      "id": 4
+    },
+    {
+      "dishes": [
+        {
+          "order": "Tikka Masala",
+          "total": 20,
+          "servings": 4
+        }
+      ],
+      "datePlaced": "2021-09-28T14:10:39.693Z",
+      "status": "Placed",
+      "userId": "1",
+      "total": 20,
+      "id": 5
     }
   ]
 }

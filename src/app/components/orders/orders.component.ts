@@ -21,8 +21,6 @@ export class OrdersComponent implements OnInit {
           this.userOrders.push(order);
           }
         }
-      
-      console.log(this.userOrders);
       }
     )};
 
